@@ -225,6 +225,9 @@ pip-log.txt
 *.dcf
 *.dcp
 *.dci
+AndroidManifest.xml
+CERT.RSA
+CERT.SF
 apktool.yml
 MANIFEST.MF
 
