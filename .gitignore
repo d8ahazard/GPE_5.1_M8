@@ -217,14 +217,14 @@ pip-log.txt
 
 ## A Bunch of Stuff I Made up
 #############################
-.java
-.lca
-.smali
-.dex
-.dca
-.dcf
-.dcp
-.dci
+*.java
+*.lca
+*.smali
+*.dex
+*.dca
+*.dcf
+*.dcp
+*.dci
 res/
 smali/
 src/
