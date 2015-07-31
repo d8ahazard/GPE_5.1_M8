@@ -1,0 +1,80 @@
+#!/system/bin/sh
+
+chmod 666 /sys/block/mmcblk0/queue/scheduler
+chmod 666 /sys/block/mmcblk0/queue/read_ahead_kb
+chmod 666 /sys/block/mmcblk1/queue/scheduler
+chmod 666 /sys/block/mmcblk1/queue/read_ahead_kb
+chmod 666 /sys/module/cpu_boost/parameters/boost_ms
+chmod 666 /sys/module/cpu_boost/parameters/sync_threshold
+chmod 666 /sys/module/cpu_boost/parameters/input_boost_freq 
+chmod 666 /sys/module/cpu_boost/parameters/input_boost_ms
+chmod 666 /sys/android_touch/wake_gestures  
+chmod 666 /sys/android_touch/sweep2wake 
+chmod 666 /sys/android_touch/doubletap2wake  
+chmod 666 /sys/android_touch/sweep2sleep
+chmod 666 /sys/android_touch/pocket_detect
+chmod 666 /sys/android_touch/camera_gesture
+
+#Set Wake Gestures
+ #echo 1 > /sys/android_touch/wake_gestures
+ echo 0 > /sys/android_touch/wake_gestures
+
+#Set Sweep2wake
+  echo 0 > /sys/android_touch/sweep2wake
+  #echo 1 > /sys/android_touch/sweep2wake
+  #echo 2 > /sys/android_touch/sweep2wake
+
+#Set Doubletap2wake
+ #echo 1 > /sys/android_touch/doubletap2wake
+  echo 0 > /sys/android_touch/doubletap2wake
+
+#Set Sweep2sleep
+  #echo 1 > /sys/android_touch/sweep2sleep
+  echo 2 > /sys/android_touch/sweep2sleep
+  #echo 3 > /sys/android_touch/sweep2sleep
+  #echo 0 > /sys/android_touch/sweep2sleep
+
+#Set Pocket Detection
+  #echo 1 > /sys/android_touch/pocket_detect
+  echo 0 > /sys/android_touch/pocket_detect
+
+#Set Camera Launch
+  #echo 0 > /sys/android_touch/camera_gesture
+  echo 1 > /sys/android_touch/camera_gesture
+
+#Set FASTCHARGE
+  #echo 1 > /sys/kernel/fast_charge/force_fast_charge
+  echo 0 > /sys/kernel/fast_charge/force_fast_charge
+
+#cover settings
+  echo 0 > /sys/module/hall_sensor/parameters/disable_cover;
+  #echo 1 > /sys/module/hall_sensor/parameters/disable_cover;
+  
+echo "fiops" > /sys/block/mmcblk0/queue/scheduler
+echo "1024" > /sys/block/mmcblk0/queue/read_ahead_kb
+echo "fiops" > /sys/block/mmcblk1/queue/scheduler
+echo "1024" > /sys/block/mmcblk1/queue/read_ahead_kb
+echo 1 > /sys/module/cpu_boost/parameters/cpuboost_enable
+echo 20 > /sys/module/cpu_boost/parameters/boost_ms 
+echo 2265600 > /sys/module/cpu_boost/parameters/sync_threshold 
+echo 1267200 > /sys/module/cpu_boost/parameters/input_boost_freq 
+echo 20 > /sys/module/cpu_boost/parameters/input_boost_ms
+echo 300000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+echo 2265600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+
+chmod 644 /sys/block/mmcblk0/queue/scheduler
+chmod 644 /sys/block/mmcblk0/queue/read_ahead_kb
+chmod 644 /sys/block/mmcblk1/queue/scheduler
+chmod 644 /sys/block/mmcblk1/queue/read_ahead_kb
+chmod 644 /sys/module/cpu_boost/parameters/boost_ms
+chmod 644 /sys/module/cpu_boost/parameters/sync_threshold
+chmod 644 /sys/module/cpu_boost/parameters/input_boost_freq 
+chmod 644 /sys/module/cpu_boost/parameters/input_boost_ms
+chmod 644 /sys/android_touch/wake_gestures  
+chmod 644 /sys/android_touch/sweep2wake 
+chmod 644 /sys/android_touch/doubletap2wake  
+chmod 644 /sys/android_touch/sweep2sleep
+chmod 644 /sys/android_touch/pocket_detect
+chmod 644 /sys/android_touch/camera_gesture
+
+exit 0

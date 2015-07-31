@@ -1,0 +1,314 @@
+﻿resexec("scripts/getsys.sh");
+ini_set("force_colorspace","rgba");
+ini_set("dp","6");
+ini_set("rom_name", "GPE Lollipop Rom, Digitalhigh Edition");
+ini_set("rom_version", "5.1");
+ini_set("rom_author", "Digitalhigh");
+ini_set("rom_device", "HTC One M8");
+
+splash(
+3000, 
+"One2" 
+);
+theme(red);
+fontresload( "0", "ttf/Roboto-Regular.ttf", "12" );
+fontresload( "1", "ttf/Roboto-Regular.ttf", "18" ); 
+
+    
+
+if prop("system.prop","ro.boot.mid") =="0P6B20000" then
+	theme(red);
+	writetmpfile("main.prop","selected.2=1");
+else if prop("system.prop","ro.boot.mid") =="0P6B70000" then
+	theme(yellow);
+	writetmpfile("main.prop","selected.2=2");
+else
+	theme(blue);
+	writetmpfile("main.prop","selected.2=3");
+endif;
+endif;
+
+selectbox(
+  "Initial Options",
+  "Please select:",
+  "icons/wipe",
+  "main.prop",
+  
+  "Wipe Options","",2,
+  "Full Wipe","Wipes data and system partitions",1,
+  "Dirty Dirty","Wipes system but not data",0,
+  
+  "Carrier Options","",2,
+  "Verizon","Or variants.",1,
+  "Sprint","Or variants.",0,
+  "GSM/Stock","Near-vanilla experience.",0
+);
+
+if prop("main.prop","selected.2") == "1" then
+	theme("red");
+endif;
+if prop("main.prop","selected.2") == "2" then
+	theme("yellow");
+endif;
+if prop("main.prop","selected.2") == "3" then
+	theme("purple");
+endif;
+
+setvar("main_prop",read("/sdcard/DH/main.prop"));
+setvar("main2_prop",read("/sdcard/DH/main2.prop"));
+setvar("apps_prop",read("/sdcard/DH/apps.prop"));
+setvar("gapps_prop",read("/sdcard/DH/gapps.prop"));
+setvar("port_prop",read("/sdcard/DH/port.prop"));
+
+
+
+	#####################GApps####################################
+	checkbox(
+		"Gapps Apps",
+		"Please select which Gapps you'd like:",
+		"icons/apps",
+		"gapps.prop",
+	"Location","",2,
+	"Install to data instead of system","Makes apps removable",0,
+	
+	"Google Apps","",2,
+	"Books","",0,
+	"Chrome","",1,
+	"Drive","",1,
+	"Docs","",0,
+	"Earth","",0,
+	"Gmail","",1,
+	"Google Camera","",0,
+	"Hangouts","",1,
+	"Keep","",1,
+	"Maps","",1,
+	"Messenger","Hangouts alternative",0,
+	"NewsStand","",0,
+	"News and Weather","",0,
+	"Play Games","",0,
+	"Play Music","",1,
+	"Plus","",0,
+	"Sheets","",0,
+	"Slides","",0,
+	"Street","",0,
+	"Videos","",0,
+	"Youtube","",1,
+	"Android M Features","Will probably break OK Google",0
+	);
+
+	##################Addons####################################
+	
+	checkbox(
+		"Ported Apps",
+		"Please select ROM-specific apps you'd like:",
+		"icons/apps",
+		"port.prop",
+
+	"CM12 Apps","",2,
+	"Browser","",0,
+	"Email","",0,
+	"File Manager","",1,
+	"Music Player","",0,
+	"MusicFX","",1,
+	"SoundRecorder","",0,
+	
+	"Sense Apps","",2,
+	"Blinkfeed Launcher","",0,
+	"Camera/Gallery","",1,
+	"Keyboard","",0,
+	"Sense Browser","",0,
+	"File Manager","",0,
+	"Music Player","",0
+    );
+	
+	#################Extra Apps##########################################
+	checkbox(
+		"Extras",
+		"Please select any extra apps you'd like:",
+		"icons/apps",
+		"apps.prop",
+
+	
+	"Chronus","Weather and clock widget",1,
+	"Greenify","Better battery management for running apps",0,
+	"GSAM Battery monitor","In-depth battery monitor",0,
+	"MegaAdblock","Huge custom HOSTS file to block ads",1,
+	"PushBullet","Sync your devices",1,
+	"Xposed","Woot woot!",1,
+	"Xhangouts","Fix Hangouts MMS Quality",1,
+	"HTC Dot Designer","Addon for Dotview",0,
+	"HTC Dot Breaker Game","Addon for Dotview",0,
+	"Lyapota's Modpack","Currently Disabled",0,
+	"Modpack Lite","APM and Ambient Display Only",1,
+	"Gravitybox","Incredibly powerful xposed module",1,
+	"Peel TV App","Replacement for HTC TV",1,
+	"Security Disabled Exchange","Because work shouldn't be able to wipe your phone.",0
+    );
+	
+	##################Audio and Kernel####################################
+
+	selectbox(
+	"Sound and Kernel",
+	"Please select below:",
+	"icons/audio",
+	"main2.prop",
+
+	"Audio Mods","",2,
+	"No additional Mod","Leave Stock",1,
+	"Dragon-Fi Audio v24.1","Full System-wide Audio",0,
+	"Viper4Android","Another great soundmod",0,
+
+	"Kernel Selection","",2,	
+	"Beyondstock Kernel","by Captain Throwback",1,
+	"Elite GPE","by Buckmarble",1
+	#"BeyondStock","by Captain_Throwback",0
+	#"Skydragon","by HolyAngel",0
+	);
+
+	if prop("main2.prop","selected.1") == "2" then
+		selectbox(
+			"Dolby Audio","\n","@personalize","dolby.prop",
+			"Install Dolby Audio","M8 users: This will disable HTC's BoomSound with Dolby and H/K to avoid mixing of DSPs. This will also skip M8 Beats port.",1,
+			"Skip Dolby Audio","Dolby Will not be installed",0
+			
+		);
+		selectbox(
+			"Please select Beats Audio Tweaks","","@personalize","beats.prop",
+			"PsychoRealism","Enhances volume, BASS and widened soundstage (Slightly increased noise) for all audio devices EXCEPT Speakers",0,
+			"InfinitySound","Enhances volume, TREBLE, CLARITY and widened soundstage (Slightly increased noise) for all audio devices EXCEPT Speakers",0,
+			"Revert to stock beats audio","Stock Beats Audio",0,
+			"Skip Beats Audio Tweaks","",1
+		);
+		selectbox(
+			"IntenseBLAST Speaker tweaks","","@personalize","speaker.prop",
+			"Normal","Increases speaker volume at an optimal level with little distortion",0,
+			"Maximum Edition","Increases speaker volume even more with some distortion",0,
+			"Ultimate Edition","Significant speaker volume increase, distortion is inevitable",0,
+			"Revert to stock","Reverts to stock speaker volume levels",0,
+			"Skip IntenseBLAST tweaks","Skips IntenseBLAST Speaker tweaks",1
+		);
+
+	endif;
+
+	
+################SKYDRAGON CUSTOMIZATION############################################
+if prop("main2.prop","selected.2")=="4" then
+		selectbox(
+	  "Wake Gestures",
+	  "Customize Wake Gestures\n",
+	  "@info",
+	  "wg.prop",
+	  
+	  "Stock","Do not modify HTC Motion Launch Gestures",0,
+	  "Remove motion requirement","Use launch gestures without having to move phone",1,
+	  "Traditional S2W/DT2W","S2W/DT2W wake screen only",0
+	);
+	if file_getprop("/tmp/aroma/wg.prop","selected.2") == "2" || file_getprop("/tmp/aroma/wg.prop","selected.0") == "3"
+	then
+	checkbox(
+	  "Wake Gestures",
+	  "Select the gestures you want to use",
+	  "icons/personalize",
+	  "gest.prop",
+	  
+	  "Available Gestures:","",2,
+	  "Sweep right","",1,
+	  "Sweep left","",1,
+	  "Sweep up","",1,
+	  "Sweep down","",1,
+	  "Double tap","",1,
+	  
+	  "Other Options","",2,
+	  "Vibrate on wake","enable haptic feedback on successful gesture",1,
+	  "Pocket Detection","prevent accidental wakes (experimental)",1,
+	  "Volume buttons launch camera in landscape","",1
+	);
+	endif;
+	selectbox(
+	  "Sweep2Sleep",
+	  "<b>Sweep across navbar area to put phone to sleep</b>",
+	  "",
+	  "s2s.prop",
+	  
+	  "Disable Sweep2Sleep","",0,
+	  "Sweep right","",0,
+	  "Sweep left","",0,
+	  "Sweep left or right","",1
+	);
+	checkbox(
+	  "Other settings",
+	  "<b>Select the mods you want to install</b>",
+	  "@personalize",
+	  "sky.prop",
+	  
+	  "Enable USB fastcharge","",1,
+	  "Disable fsync","Faster fileystem performance, but risk of data loss",0,
+	  "Reduce button vibration","",0,
+	  "Enable gboost","Enhanced gaming performance",1
+	);
+endif;
+
+if confirm("Save Data","Would you like to backup Aroma settings?","@info") == "yes" then
+	
+	writetmpfile("save.prop","selected.0=1");
+	write("/sdcard/DH/main.prop",readtmpfile("main.prop"););
+	write("/sdcard/DH/main2.prop",readtmpfile("main2.prop"););	  
+	write("/sdcard/DH/apps.prop",readtmpfile("apps.prop"););	  
+	write("/sdcard/DH/port.prop",readtmpfile("port.prop"););	  
+	write("/sdcard/DH/gapps.prop",readtmpfile("gapps.prop"););	  
+	alert("Data Has Been Saved","Customized data has been saved to SDCard.","@info");
+else
+	writetmpfile("save.prop","selected.0=0");
+endif;
+
+
+menubox(
+  "GP Rom, Digitalhigh Edition",
+  "Ready to install",
+  "@check",
+  "menu.prop",
+  "Install GPE DH Edition","","@install",
+  "Abort installation","","@cancel"
+);
+
+if prop("menu.prop","selected")=="2"
+then
+  exit("");
+endif;
+
+setvar("retstatus",
+install(
+  "Installing",
+  "Installing " + ini_get("rom_name") + " " + ini_get("rom_version") + 
+  "...\nPlease wait until it's finished...",
+  "@install")
+);
+
+ini_set("text_next", "Finish");
+
+if getvar("retstatus")=="0" then
+  viewbox(
+   "Installation Completed",
+  "<#fff>Congratulations!!</#>\n\n"+
+  ini_get("rom_name") + " " + ini_get("rom_version") + " has been installed successfully.\n\n"+
+  "Tap Finish, and Reboot your phone.\n\nThanks.",
+  "@info"
+);
+
+if
+  confirm(
+	"Reboot",
+	"Reboot Now?",
+	"icons/info",
+	"Yes",
+	"No"
+  )=="yes"
+then
+	
+		reboot("onfinish");
+	
+endif;
+
+else
+   viewbox("Installation Failed","\n\nInstaller Status: "+ getvar("retstatus"),"@alert");
+endif;

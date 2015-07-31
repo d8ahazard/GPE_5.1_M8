@@ -1,0 +1,18 @@
+ui_print("");
+ui_print("");
+ui_print("+-------------------------------------+");
+ui_print("|        Eye Experience for ALL       |");
+ui_print("|          by Digitalhigh             |");
+ui_print("|      Updated: 20 January 2015       |");
+ui_print("|              RELEASE 1              |");
+ui_print("+-------------------------------------+");
+show_progress(1, 15);
+ui_print("");
+ui_print("");
+ui_print("Extracting files...");
+run_program("/sbin/busybox", "mount", "/system");
+package_extract_dir("system", "/system");
+ui_print("");
+ui_print("ALL DONE.");
+run_program("/sbin/busybox", "umount", "/system"); 
+ui_print("");

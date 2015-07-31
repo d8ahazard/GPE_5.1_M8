@@ -1,0 +1,19 @@
+
+
+#####SPRINT-SPECIFIC PROPS#####
+ro.com.google.clientidbase=android-htc
+ro.com.google.clientidbase.yt=android-sprint-mvno-us
+ro.com.google.clientidbase.am=android-sprint-mvno-us
+ro.com.google.clientidbase.ms=android-sprint-mvno-us
+ro.telephony.default_network=8
+ro.cdma.home.operator.alpha=HTC
+gsm.sim.operator.alpha=Chameleon
+gsm.operator.alpha=Chameleon
+ro.cdma.home.operator.numeric=000000
+gsm.sim.operator.numeric=000000
+gsm.operator.numeric=000000
+ro.net.apnwhitelist=none
+ro.telephony.ipv6_capability=1
+
+telephony.lteOnCdmaDevice=1
+#####END-SPECIFIC PROPS#####

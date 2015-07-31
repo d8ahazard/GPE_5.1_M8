@@ -1,0 +1,8 @@
+#!/system/bin/sh
+# ========================================
+# script for modPack
+# ========================================
+# Created by lyapota
+
+echo 1 > /sys/keyboard/vol_wakeup
+chmod 444 /sys/keyboard/vol_wakeup

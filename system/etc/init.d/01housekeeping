@@ -1,0 +1,18 @@
+#!/system/bin/sh
+	
+#Trick to install apps cleanly
+
+	echo Setting Battery Percentage
+	# disable google checkin services
+	sh /system/bin/tweaks goog secure:bandwidth_checkin_stat_interval 0
+	sh /system/bin/tweaks goog gms:cast:mirroring_enabled true o
+	sh /system/bin/tweaks goog gms:cast:remote_display_enabled true o
+	sh /system/bin/tweaks glob data_roaming 1
+	sh /system/bin/tweaks glob audio_safe_volume_state 0
+	sh /system/bin/tweaks glob install_non_market_apps 1
+	sh /system/bin/tweaks glob tether_dun_required false
+	sh /system/bin/tweaks glob transition_animation_scale 0.5
+	sh /system/bin/tweaks glob window_animation_scale 0.5
+	sh /system/bin/tweaks glob animator_duration_scale 0.5
+	
+

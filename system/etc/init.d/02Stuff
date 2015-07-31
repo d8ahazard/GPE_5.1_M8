@@ -1,0 +1,5 @@
+#!/system/bin/sh
+fstrim -v /system >> /sdcard/stuff.log;
+fstrim -v /data >> /sdcard/stuff.log;
+fstrim -v /cache >> /sdcard/stuff.log;
+echo  "Last TRIM was on: $( date +"%m-%d-%Y %r" )" >> /sdcard/stuff.log

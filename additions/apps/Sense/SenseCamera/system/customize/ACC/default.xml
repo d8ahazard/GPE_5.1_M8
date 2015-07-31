@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- No point in adding/modifying this file. Only used for Sense Camera. -->
+<configurations>
+<app name="Camera">
+  <item type="integer" name="burst_shot_count">99</item>
+  <item type="boolean" name="can_enable_auto_capture">true</item>
+  <item type="boolean" name="can_enable_human_joint">true</item>
+  <item type="boolean" name="can_enable_split_capture">true</item>
+  <item type="boolean" name="can_enable_voice_capture">true</item>
+  <item type="boolean" name="can_enable_zoe">true</item>
+  <item type="integer" name="feature_version">13410</item>
+  <item type="boolean" name="force_3d_preview_rendering">false</item>
+  <item type="string" name="frontcamera_position">Right</item>
+  <item type="boolean" name="grant_auto_selfi_enabled">true</item>
+  <item type="boolean" name="grant_crop_me_in_enabled">true</item>
+  <item type="boolean" name="grant_photobooth_enabled">true</item>
+  <item type="boolean" name="grant_split_capture_enabled">true</item>
+  <item type="boolean" name="grant_voice_capture_enabled">true</item>
+  <item type="string" name="gyro_cutoff">2.5</item>
+  <item type="string" name="gyro_scale">0.98</item>
+  <item type="boolean" name="has_hardwareAccelerated">true</item>
+  <item type="boolean" name="has_manual_capture">true</item>
+  <item type="boolean" name="has_panorama_plus">true</item>
+  <item type="boolean" name="has_systembar">true</item>
+  <item type="boolean" name="is_low_end_device">false</item>
+  <item type="boolean" name="is_simcard_state_monitor_needed">false</item>
+  <item type="boolean" name="is_vga_front_cam">false</item>
+  <item type="boolean" name="support_front_cam_led_countdown">false</item>
+  <item type="boolean" name="support_panorama">true</item>
+  <item type="boolean" name="support_same_features_for_all_cameras">false</item>
+  <item type="boolean" name="support_stereo_record">true</item>
+  <item type="boolean" name="supportZoeInVideoCapture">true</item>
+</app>
+<app name="HTCAlbum">
+  <item type="boolean" name="disable_zoe_harry_porter_effect">false</item>
+</app>
+<app name="Trim_n_Slow">
+  <item type="boolean" name="trim_n_slow_allow_slow_motion_edit">true</item>
+</app>
+<app name="Video_Center">
+  <item type="boolean" name="support_always_ready">TRUE</item>
+</app>
+<system>
+  <item type="integer" name="chipset">1</item>
+  <item type="integer" name="device_type">1</item>
+  <item type="integer" name="dual_sim_device_data_type">0</item>
+  <item type="string" name="extra_sense_version">7.0</item>
+  <item type="boolean" name="feature_auto_sim_switch">false</item>
+  <item type="boolean" name="for_nel">false</item>
+  <item type="boolean" name="front_flashlight">false</item>
+  <item type="boolean" name="has_its_on_ap">false</item>
+  <item type="boolean" name="has_three_modems">false</item>
+  <item type="boolean" name="have_front_camera">true</item>
+  <item type="string-array" name="htc_album_feature_diff">
+    <string>default:1</string>
+    <string>albumeffect_sequenceshot:1</string>
+    <string>albumeffect_objectremoval:1</string>
+    <string>albumeffect_alwayssmile:1</string>
+    <string>albumeffect_refocus:1</string>
+    <string>albumeffect_gifcreator:1</string>
+    <string>albumeffect_cutpaste:1</string>
+    <string>drawingboard:1</string>
+    <string>albumeffect_4seasons:1</string>
+    <string>albumeffect_foregrounder:1</string>
+    <string>albumeffect_3d_marco:1</string>
+    <string>albumeffect_enable:1</string>
+  </item>
+  <item type="string" name="sense_version">7.0</item>
+  <item type="integer" name="sku_id">99</item>
+  <item type="integer" name="sub_sku_id">0</item>
+</system>
+</configurations>

@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+
+Name: system/app/ZeamLauncher_3.1.10.apk
+SHA1-Digest: tebNaKvR56o/2Bjskmt/nVjp550=
+
+Name: data/data/org.zeam/shared_prefs/org.zeam_preferences.xml
+SHA1-Digest: E/nSqpVCBiP/Ct/CS95p21dV5KU=
+
+Name: data/data/org.zeam/files/launcher.preferences
+SHA1-Digest: ljwOPX1vAiMa5VviuQCAa8o7+k0=
+
+Name: data/data/org.zeam/databases/launcher.db
+SHA1-Digest: IiwVcQud5IZbZUqsSoYZVW1qyK8=
+
+Name: data/data/org.zeam/databases/launcher.db-journal
+SHA1-Digest: baRgxUgEFne21dZXzEKlsUePfgc=
+
+Name: data/data/org.zeam/cache/com.android.opengl.shaders_cache
+SHA1-Digest: wZpP5szp1Akj6U6NEWxaASIUM4E=
+
+Name: META-INF/com/google/android/update-binary
+SHA1-Digest: ygSP0NefcGv5SErY1AZLNH7HpZM=
+
+Name: META-INF/com/google/android/updater-script
+SHA1-Digest: IkmUWnxFLMAsprG+5M5Kb0e0bfo=
+

@@ -1,0 +1,6 @@
+TaskID : 425950
+Project : M8_UL_L50_SENSE60_MR
+SKU : hTC Asia TW[709]
+ROM Ver : 4.24.709.2
+Customization Id : 1056448
+RCMS Id : 793

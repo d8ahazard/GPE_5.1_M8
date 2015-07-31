@@ -1,0 +1,8 @@
+
+
+#####GSM-SPECIFIC PROPS#####
+
+
+ro.telephony.default_network=9
+#####END-SPECIFIC PROPS#####
+
