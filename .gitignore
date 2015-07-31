@@ -235,3 +235,5 @@ GPE_5.1_M8*.zip
 res/
 smali/
 src/
+ramdisk/
+split_img/
