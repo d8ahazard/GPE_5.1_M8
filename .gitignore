@@ -232,6 +232,7 @@ apktool.yml
 MANIFEST.MF
 GPE_5.1_M8*.zip
 
+pull/
 res/
 smali/
 src/
