@@ -1288,7 +1288,29 @@ set_metadata("/system/bin/wpa_cli", "uid", 0, "gid", 2000, "mode", 0755, "capabi
   set_metadata("/data/app", "uid", 1000, "gid", 1000, "mode", 0771, "capabilities", 0x0);
   
 ui_print("-- Success!");
-
+if
+	file_getprop("tmp/aroma-data/apps.prop","item.0.6") == "1"
+then
+	ui_print("@Installing Xposed");
+	ui_print("-- Extracting Files");
+	package_extract_dir("additions/apps/Other/Xposed/install/system", "/system");
+	ui_print("-- Symlinks");
+	symlink("system/bin/app_process32_xposed", "/system/bin/app_process_32");
+	ui_print("-- Permissions");
+	set_metadata("/system/bin/app_process32_xposed", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
+	set_metadata("/system/bin/app_process32", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
+	set_metadata("/system/bin/dex2oat", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dex2oat_exec:s0");
+	set_metadata("/system/bin/oatdump", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/bin/patchoat", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dex2oat_exec:s0");
+	set_metadata("/system/lib/libart.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/lib/libart-compiler.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/lib/libart-disassembler.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/lib/libsigchain.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/lib/libxposed_art.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/xposed.prop", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/framework/XposedBridge.jar", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	ui_print("-- Success!");
+endif;
 
 ######################Busybox Install###########################
 ui_print("@Installing Busybox");
@@ -1304,19 +1326,6 @@ set_progress(0.97);
 package_extract_dir("additions/apps/Other/supersu", "/tmp/supersu");
 run_program("/sbin/busybox", "unzip", "/tmp/supersu/supersu.zip", "META-INF/com/google/android/*", "-d", "/tmp/supersu");
 run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/supersu/supersu.zip");
-
-
-if
-	file_getprop("tmp/aroma-data/apps.prop","item.0.6") == "1"
-then
-	ui_print("@Installing Xposed");
-	ui_print("-- Extracting Files");
-	package_extract_dir("additions/apps/Other/Xposed/install", "/tmp/xposed");
-	ui_print("-- Running Scripts");
-	run_program("/sbin/busybox", "unzip", "/tmp/xposed/xposed.zip", "META-INF/com/google/android/*", "-d", "/tmp/xposed");
-	run_program("/sbin/busybox", "sh", "/tmp/xposed/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/xposed/xposed.zip");
-	ui_print("-- Success!");
-endif;
 
 
 ui_print("@Final Cleanup.");
