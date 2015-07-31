@@ -225,6 +225,9 @@ pip-log.txt
 *.dcf
 *.dcp
 *.dci
+apktool.yml
+MANIFEST.MF
+
 res/
 smali/
 src/
