@@ -230,6 +230,7 @@ CERT.RSA
 CERT.SF
 apktool.yml
 MANIFEST.MF
+GPE_5.1_M8*.zip
 
 res/
 smali/
