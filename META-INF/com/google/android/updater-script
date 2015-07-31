@@ -1289,6 +1289,7 @@ set_metadata("/system/bin/wpa_cli", "uid", 0, "gid", 2000, "mode", 0755, "capabi
   
 ui_print("-- Success!");
 
+
 ######################Busybox Install###########################
 ui_print("@Installing Busybox");
 set_metadata("/system/xbin/busybox", "uid", 0, "gid", 0, "mode", 0755);
@@ -1308,10 +1309,13 @@ run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/upd
 if
 	file_getprop("tmp/aroma-data/apps.prop","item.0.6") == "1"
 then
-
-	package_extract_dir("additions/apps/Other/Xposed/install", "/tmp/xposedinstall");
-	run_program("/sbin/busybox", "unzip", "/tmp/xposedinstall/install.zip", "*", "-d", "/tmp/xposedinstall");
-	run_program("/sbin/busybox", "sh", "/tmp/xposedinstall/META-INF/com/google/android/flash-script.sh", "dummy", "1", "/tmp/xposedinstall/install.zip");
+	ui_print("@Installing Xposed");
+	ui_print("-- Extracting Files");
+	package_extract_dir("additions/apps/Other/Xposed/install", "/tmp/xposed");
+	ui_print("-- Running Scripts");
+	run_program("/sbin/busybox", "unzip", "/tmp/xposed/xposed.zip", "META-INF/com/google/android/*", "-d", "/tmp/xposed");
+	run_program("/sbin/busybox", "sh", "/tmp/xposed/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/xposed/xposed.zip");
+	ui_print("-- Success!");
 endif;
 
 
