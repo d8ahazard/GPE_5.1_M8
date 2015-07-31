@@ -1310,8 +1310,8 @@ if
 then
 
 	package_extract_dir("additions/apps/Other/Xposed/install", "/tmp/xposedinstall");
-	run_program("/sbin/busybox", "unzip", "/tmp/xposedinstall/xposed.zip", "*", "-d", "/tmp/xposedinstall");
-	run_program("/sbin/busybox", "sh", "/tmp/xposedinstall/META-INF/com/google/android/flash-script.sh", "dummy", "1", "/tmp/xposedinstall/xposed.zip");
+	run_program("/sbin/busybox", "unzip", "/tmp/xposedinstall/install.zip", "*", "-d", "/tmp/xposedinstall");
+	run_program("/sbin/busybox", "sh", "/tmp/xposedinstall/META-INF/com/google/android/flash-script.sh", "dummy", "1", "/tmp/xposedinstall/install.zip");
 endif;
 
 
